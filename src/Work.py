@@ -38,13 +38,15 @@ db= mysql_connector.connectdb()
 if db is not None:
     file_list = glob.glob(r"../material/mem/localhost_access_log.*.txt")
     for filename in file_list:
-        if filename.rfind(localtime):
+        finded=filename.rfind(localtime)
+        if finded != -1:
             break
         readFile(filename,"47.95.234.108")
         os.remove(filename)
     file_list = glob.glob(r"../material/tckj/localhost_access_log.*.txt")
     for filename in file_list:
-        if filename.rfind(localtime):
+        finded = filename.rfind(localtime)
+        if finded != -1:
             break
         readFile(filename,"47.93.231.128")
         os.remove(filename)
