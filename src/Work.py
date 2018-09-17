@@ -31,24 +31,18 @@ def readFile(file_path,tomcat_ip):
         insertdb(values,tomcat_ip)
         line = file.readline()
 
-localtime=time.strftime("%Y-%m-%d",time.localtime())
+#localtime=time.strftime("%Y-%m-%d",time.localtime())
 
 # db=PyMy.connectdb()
 db= mysql_connector.connectdb()
 if db is not None:
     file_list = glob.glob(r"../material/mem/localhost_access_log.*.txt")
     for filename in file_list:
-        finded=filename.rfind(localtime)
-        if finded != -1:
-            break
-        readFile(filename,"47.95.234.108")
+        readFile(filename, "47.95.234.108")
         os.remove(filename)
     file_list = glob.glob(r"../material/tckj/localhost_access_log.*.txt")
     for filename in file_list:
-        finded = filename.rfind(localtime)
-        if finded != -1:
-            break
-        readFile(filename,"47.93.231.128")
+        readFile(filename, "47.93.231.128")
         os.remove(filename)
     db.close()
 print "运行结束"

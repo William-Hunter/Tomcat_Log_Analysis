@@ -1,12 +1,12 @@
 # coding=utf-8
 
 import mysql.connector
-import Config
+import DataBaseConfig
 
 def connectdb():
     print('正在连接到mysql服务器...')
     try:
-        db = mysql.connector.connect(**Config.config)
+        db = mysql.connector.connect(**DataBaseConfig._254)
         print('连接上了!')
         return db
     except Exception, e:
