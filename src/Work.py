@@ -7,6 +7,8 @@ import mysql_connector
 
 print "运行开始"
 
+SERVER_ONE='47.47.47.47'
+SERVER_TWO='47.47.47.47'
 
 def insertdb(values,tomcat_ip):
     cursor = db.cursor()
@@ -38,11 +40,11 @@ db= mysql_connector.connectdb()
 if db is not None:
     file_list = glob.glob(r"../material/mem/localhost_access_log.*.txt")
     for filename in file_list:
-        readFile(filename, "47.95.234.108")
+        readFile(filename, SERVER_ONE)
         os.remove(filename)
     file_list = glob.glob(r"../material/tckj/localhost_access_log.*.txt")
     for filename in file_list:
-        readFile(filename, "47.93.231.128")
+        readFile(filename, SERVER_TWO)
         os.remove(filename)
     db.close()
 print "运行结束"
